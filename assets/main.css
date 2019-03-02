@@ -17,6 +17,10 @@ html a {
 
 header {
   padding: 2em;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header a {
@@ -25,34 +29,66 @@ header a {
   font-size: 1.2em;
 }
 
-header img {
-  float: right;
-  height: 18px;
+.hamburger {
+  width: 1.75em;
   cursor: pointer;
+  z-index: 61;
+}
+
+.hamburger:after,
+.hamburger:before,
+.hamburger div {
+  background-color: black;
+  border-radius: 3px;
+  content: "";
+  display: block;
+  height: 0.25em;
+  margin: 0.25em 0;
+  transition: all 0.6s ease-in-out;
+}
+
+.close:after {
+  background-color: #fff;
+  transform: translateY(-0.5em) rotate(-135deg);
+}
+
+.close:before {
+  background-color: #fff;
+  transform: translateY(0.5em) rotate(135deg);
+}
+
+.close div {
+  background-color: #fff;
+  transform: scale(0);
 }
 
 section {
-  padding: 2em 23em;
-  margin: auto;
+  height: calc(80% - 4em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   font-weight: bold;
   background-image: url("images/rectangle.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  height: 70%;
 }
 
 section h1 {
-  font-size: 4.3em;
+  font-size: 3.5em;
+  line-height: 1.5em;
   color: #0f401f;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 section p {
-  font-size: 1.6em;
+  font-size: 1.2em;
   color: #62666a;
   text-align: right;
-  padding-right: 4em;
+  margin: 0 auto;
+  padding-left: 4em;
+  align-self: flex-end;
 }
 
 footer {
@@ -84,8 +120,8 @@ footer ul li {
 
 .footer-links a {
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 0.9em;
+  height: 0.9em;
   background: no-repeat center center;
   background-size: 100% auto;
   opacity: 0.7;
@@ -101,4 +137,76 @@ footer ul li {
 
 .footer-links a.github {
   background-image: url(images/github.svg);
+}
+
+.menu {
+  background-color: rgba(0, 0, 0, 0.932);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 33%;
+  transition: transform 0.3s ease-in-out;
+  z-index: 50;
+  transform: translateX(100%);
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  align-items: left;
+  justify-content: left;
+  height: 100%;
+  font-size: 1.3em;
+  padding-top: 30px;
+}
+
+.menu li {
+  padding-top: 1em;
+}
+
+.menu li a {
+  color: #fff;
+}
+
+.open-menu {
+  transform: translateX(0);
+}
+
+@media (max-width: 1024px) {
+  section {
+    height: 65%;
+    padding: 1.5em;
+    background-size: 500px 500px;
+  }
+  section h1 {
+    font-size: 3em;
+  }
+  .menu {
+    width: 50%;
+  }
+}
+
+@media (max-width: 800px) {
+  section {
+    height: 60%;
+    background-size: 350px 350px;
+  }
+  section h1 {
+    font-size: 2em;
+  }
+  section p {
+    font-size: 1em;
+  }
+  .menu {
+    width: 100%;
+  }
+  .menu ul {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
+  }
 }

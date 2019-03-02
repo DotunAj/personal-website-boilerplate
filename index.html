@@ -10,12 +10,19 @@
   <body>
     <header>
       <a href="#">Ayodotun A. Ajala</a>
-
-      <img class="menu" src="assets/images/hamburger.svg" alt="menu" />
+      <div class="hamburger">
+        <div></div>
+      </div>
     </header>
     <section>
-      <h1>Hi, I'm Dotun, a fullstack web developer.</h1>
-      <p>I can develop anything 😎</p>
+      <div>
+        <h1>
+          Hi, I'm Dotun, a<br />
+          fullstack web <br />
+          developer.
+        </h1>
+        <p>I can develop anything 😎</p>
+      </div>
     </section>
     <footer>
       <ul class="footer-links">
@@ -25,5 +32,21 @@
       </ul>
       <p>© Ayodotun A. Ajala</p>
     </footer>
+    <div class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact me</a></li>
+      </ul>
+    </div>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const menu = document.querySelector(".menu");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("close");
+        menu.classList.toggle("open-menu");
+      });
+    </script>
   </body>
 </html>
